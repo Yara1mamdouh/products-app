@@ -1,0 +1,22 @@
+<div class="card">
+
+  <img [src]="product.image" [alt]="product.name">
+
+  <h3>{{ product.name }}</h3>
+
+  <p>{{ product.price | currency:'EGP' }}</p>
+
+  <p>⭐ {{ product.rating }}</p>
+
+  <p
+    [ngClass]="product.stock === 0 ? 'out-stock' : 'in-stock'">
+
+    {{ product.stock === 0 ? 'Out of Stock' : 'In Stock' }}
+
+  </p>
+
+  <button [disabled]="product.stock === 0">
+    Add to Cart
+  </button>
+
+</div>
