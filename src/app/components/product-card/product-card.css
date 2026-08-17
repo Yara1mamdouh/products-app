@@ -11,6 +11,10 @@
   object-fit: contain;
 }
 
+.card a {
+  display: block;
+}
+
 .card button {
   padding: 8px 15px;
   border: none;
@@ -24,4 +28,16 @@
 
 .out-stock {
   color: red;
+}
+
+.rating {
+  font-size: 20px;
+}
+
+.filled {
+  color: gold;
+}
+
+.empty {
+  color: lightgray;
 }

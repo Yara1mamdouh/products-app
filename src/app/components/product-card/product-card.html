@@ -1,18 +1,25 @@
 <div class="card">
 
-  <img [src]="product.image" [alt]="product.name">
+  <a [routerLink]="['/products', product.id]">
+    <img [src]="product.image" [alt]="product.name">
+  </a>
 
   <h3>{{ product.name }}</h3>
 
   <p>{{ product.price | currency:'EGP' }}</p>
 
-  <p>⭐ {{ product.rating }}</p>
+  <!-- Rating -->
+  <div class="rating">
+    @for (star of [1, 2, 3, 4, 5]; track star) {
+      <span [ngClass]="star <= product.rating ? 'filled' : 'empty'">
+        ★
+      </span>
+    }
+  </div>
 
-  <p
-    [ngClass]="product.stock === 0 ? 'out-stock' : 'in-stock'">
-
+  <!-- Stock -->
+  <p [ngClass]="product.stock === 0 ? 'out-stock' : 'in-stock'">
     {{ product.stock === 0 ? 'Out of Stock' : 'In Stock' }}
-
   </p>
 
   <button [disabled]="product.stock === 0">
