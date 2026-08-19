@@ -1,19 +1,19 @@
 <div class="card">
 
   <a [routerLink]="['/products', product.id]">
-    <img [src]="product.image" [alt]="product.name">
+    <img [src]="product.thumbnail" [alt]="product.title">
   </a>
 
-  <h3>{{ product.name }}</h3>
+  <h3>{{ product.title }}</h3>
 
   <p>{{ product.price | currency:'EGP' }}</p>
 
   <!-- Rating -->
   <div class="rating">
     @for (star of [1, 2, 3, 4, 5]; track star) {
-      <span [ngClass]="star <= product.rating ? 'filled' : 'empty'">
-        ★
-      </span>
+    <span [ngClass]="star <= product.rating ? 'filled' : 'empty'">
+      ★
+    </span>
     }
   </div>
 
@@ -22,7 +22,7 @@
     {{ product.stock === 0 ? 'Out of Stock' : 'In Stock' }}
   </p>
 
-  <button [disabled]="product.stock === 0">
+  <button [disabled]="product.stock === 0" (click)="addToCart()">
     Add to Cart
   </button>
 

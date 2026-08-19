@@ -1,15 +1,26 @@
-<div class="product-details">
+@if (product) {
 
-  <img [src]="product.image" [alt]="product.name">
+  <div class="product-details">
 
-  <h1>{{ product.name }}</h1>
+    <img
+      [src]="product.thumbnail"
+      [alt]="product.title"
+    >
 
-  <p>Category: {{ product.category }}</p>
+    <h1>{{ product.title }}</h1>
 
-  <p>Brand: {{ product.brand }}</p>
+    <p>Category: {{ product.category }}</p>
 
-  <p>Rating: ⭐ {{ product.rating }}</p>
+    <p>Brand: {{ product.brand }}</p>
 
-  <p>Description: {{ product.description }}</p>
+    <p>Rating: ⭐ {{ product.rating }}</p>
 
-</div>
+    <p>Price: EGP {{ product.price }}</p>
+
+    <p>Description: {{ product.description }}</p>
+
+    <p>Stock: {{ product.stock }}</p>
+
+  </div>
+
+}
